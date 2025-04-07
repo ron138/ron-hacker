@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monaco Editor</title>
+  <style>
+    html, body, #container {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script src="https://unpkg.com/monaco-editor@0.43.0/min/vs/loader.js"></script>
+  <script>
+    require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.43.0/min/vs' }});
+    require(["vs/editor/editor.main"], function () {
+      monaco.editor.create(document.getElementById("container"), {
+        value: "// כתוב כאן את הקוד שלך\n",
+        language: "javascript",
+        theme: "vs-dark"
+      });
+    });
+  </script>
+</body>
+</html>
